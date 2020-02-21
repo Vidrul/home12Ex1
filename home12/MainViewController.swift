@@ -5,84 +5,44 @@ class MainViewController: UIViewController {
     
     
     @IBOutlet var allView: [UIView]!
+    
+    @IBOutlet weak var blueViewOne: UIView!
+    @IBOutlet weak var blueViewTwo: UIView!
+    @IBOutlet weak var greenViewTwo: UIView!
+    @IBOutlet weak var greenViewOne: UIView!
+    @IBOutlet weak var redView: UIView!
+    var colorsArray: [UIColor] = [.systemBlue, .red, .systemBlue, .systemGreen, .systemGreen]
+    
     @IBOutlet weak var TextFieldCornerRadius: UITextField!
     
-    
+    var roundet = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//                TextFieldCornerRadius.delegate = self
-        
+        redView.backgroundColor = .red
     }
     @IBAction func buttonDIdClickOne(_ sender: UIButton) {
-        cornerRadius()
-        returnValue()
+        roundet = !roundet
+        for view in allView {
+            view.layer.cornerRadius = roundet ? 20.0 : 0.0
+        }
     }
     
     @IBAction func buttonDidClickTwo(_ sender: UIButton) {
-        changeColorToBlack()
-    }
-    
-    
-}
-
-
-private extension MainViewController {
-    
-    func showAlert (textAlert text: String) {
-        let alertViewControler = UIAlertController(title: "Error",
-                                                   message: text,
-                                                   preferredStyle: .alert)
-        alertViewControler.addAction(UIAlertAction(title: "Back", style: .default))
-        self.present(alertViewControler, animated: true, completion: nil)
-    }
-    func cornerRadius() {
-        let textFieldValue = TextFieldCornerRadius.text
-        for view in allView {
-            if let value = textFieldValue {
-                let floatValue = Float(value)
-                if let cgFloatValue = floatValue {
-                    view.layer.cornerRadius = CGFloat(cgFloatValue)
-                }
-                if floatValue == nil {
-                    showAlert(textAlert: "Please add value for corner radius")
-                    view.layer.cornerRadius = 0
-                }
-            }
-        }
-    }
-    func returnValue(){
-        TextFieldCornerRadius.text = nil
-    }
-    
-    func changeColorToBlack() {
-        for view in allView {
-            if view.backgroundColor != .black {
+        if redView.backgroundColor == .red {
+            for view in allView {
                 view.backgroundColor = .black
-            } else if view.backgroundColor == .black {
-                allView[0].backgroundColor = .blue
-                allView[1].backgroundColor = .red
-                allView[2].backgroundColor = .blue
-                allView[3].backgroundColor = .green
-                allView[4].backgroundColor = .green
+            }
+        } else {
+            for i in 0..<allView.count {
+                allView[i].backgroundColor = colorsArray[i]
             }
         }
-        
-        
-        
-}
-}
-// Не работает((
 
-//extension MainViewController: UITextFieldDelegate {
-//    func textFieldRetrun(_ textFiled: UITextField) {
-//        switch textFiled {
-//        case TextFieldCornerRadius:
-//            TextFieldCornerRadius.resignFirstResponder()
-//        default:
-//            break
-//        }
-//    }
-//}
+    }
+    
+    
+}
+
 

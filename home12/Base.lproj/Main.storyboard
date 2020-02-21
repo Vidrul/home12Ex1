@@ -16,10 +16,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npW-ge-iks">
-                                <rect key="frame" x="132.5" y="84" width="149" height="134"/>
+                                <rect key="frame" x="132.5" y="84" width="149" height="148"/>
                                 <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="npW-ge-iks" secondAttribute="height" multiplier="149:135" constant="1" id="1bI-0C-Sm8"/>
+                                    <constraint firstAttribute="width" secondItem="npW-ge-iks" secondAttribute="height" constant="1" id="1bI-0C-Sm8"/>
                                     <constraint firstAttribute="width" constant="149" id="rYY-tm-FGf"/>
                                 </constraints>
                             </view>
@@ -99,6 +99,11 @@
                     </view>
                     <connections>
                         <outlet property="TextFieldCornerRadius" destination="ZvX-vG-z5G" id="AEq-ft-7Un"/>
+                        <outlet property="blueViewOne" destination="GDu-nC-Wwq" id="wja-pI-yhi"/>
+                        <outlet property="blueViewTwo" destination="ZD8-iT-ugg" id="asr-1v-Mxg"/>
+                        <outlet property="greenViewOne" destination="zKZ-rA-cWa" id="3yf-Su-DUI"/>
+                        <outlet property="greenViewTwo" destination="Oej-RD-vfN" id="hyh-L1-3GM"/>
+                        <outlet property="redView" destination="npW-ge-iks" id="s0P-HC-URB"/>
                         <outletCollection property="allView" destination="GDu-nC-Wwq" collectionClass="NSMutableArray" id="uo6-Zz-u8F"/>
                         <outletCollection property="allView" destination="npW-ge-iks" collectionClass="NSMutableArray" id="9F4-2X-Rnc"/>
                         <outletCollection property="allView" destination="ZD8-iT-ugg" collectionClass="NSMutableArray" id="gAq-u0-Ajj"/>
